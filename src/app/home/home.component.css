@@ -33,7 +33,7 @@ color: white;
 
   .centre{
 	margin-top: 20px; 
-	background-color:#589b37;
+	background-color:white;
 	text-align: center;
 	font-size: large;
   }
@@ -243,4 +243,9 @@ position: relative;
 .slide-show{
 
 	text-align: center;
+}
+
+.navbar-toggler{
+    background-color: black;
+    padding: 1px;
 }
