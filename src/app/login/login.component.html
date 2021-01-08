@@ -1,0 +1,35 @@
+
+ <nav class="navbar navbar-expand-md">
+    <a class="navbar-brand" href="#">
+        ASEND
+      </a>
+  
+    <button class="navbar-toggler " type="button" style="color:white"
+            (click)="toggleNavbar()">
+      <span class="navbar-toggler-icon" ></span>
+    </button>
+  
+  
+    <div class="collapse navbar-collapse"
+         [ngClass]="{ 'show': navbarOpen }">
+      <ul class="navbar-nav ">
+        <li class="nav-item">
+          <a class="nav-link" href="#">HOME</a>
+        </li>
+  
+     
+        <li class="nav-item">
+          <a class="nav-link"  routerLink="/login">LOGIN</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/posts" routerLinkActive>POSTS</a>
+        </li>
+      </ul>
+    </div>
+
+  </nav>
+
+<p>login goes here for admin</p>
+<div class="footer">
+    <app-footer></app-footer>
+    </div>
