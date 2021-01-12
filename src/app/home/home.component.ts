@@ -17,4 +17,5 @@ export class HomeComponent implements OnInit {
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
   }
+
 }

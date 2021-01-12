@@ -14,11 +14,13 @@ import { LoginComponent } from './login/login.component';
     FooterComponent,
     PostsComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
