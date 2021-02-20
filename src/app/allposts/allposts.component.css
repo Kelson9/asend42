@@ -51,9 +51,7 @@ color: #f1f1f1;
 	overflow-x: hidden;
   }
 
-
-
-.navbar-toggler{
+  .navbar-toggler{
 	background-color:white;
 	text-decoration: underline;
 	padding: 5px;
@@ -61,32 +59,11 @@ color: #f1f1f1;
 	border-bottom: 1px solid #dde0e2;
 }
 
+.body{
+width:50%;
+margin-left: 20%;
+border: 2px solid black;
+background-color: black;
+color: white;
 
-  .image-container {
-	width: 1500px;
-	background-color:#f1f1f1;
-	height: 300px;
-	clear: both;
-	position: relative;
-	-webkit-transition: left 2s;
-	-moz-transition: left 2s;
-	-o-transition: left 2s;
-	transition: left 2s;
-  }
- 
-.float{
-	position:fixed;
-	z-index: 999;
-	width:60px;
-	height:60px;
-	bottom:40px;
-	right:40px;
-	background-color:#f1f1f1;
-	color:black;
-	border-radius:50px;
-	text-align:center;
-	box-shadow: 2px 2px 3px #999;
 }
-
-
- 

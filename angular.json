@@ -13,6 +13,19 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "lodash",
+              "firebase",
+              "@angular/common/locales/fr",
+              "lodash/dropRight",
+              "@firebase/app",
+              "firebase/app",
+              "@firebase/database",
+              "@firebase/firestore",  
+              "@firebase/functions",
+              "@firebase/performance",
+              "@firebase/remote-config"
+          ],
             "outputPath": "dist/",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -24,6 +37,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -87,9 +101,13 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+        
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [ "./node_modules/jquery/dist/jquery.min.js"
+            ]
           }
         },
         "lint": {

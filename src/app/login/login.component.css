@@ -1,6 +1,20 @@
-.nav-link,
-.navbar-brand {
-	color: #fff;
+
+
+.navbar-brand{
+
+	color: #f1f1f1;
+	cursor: pointer;
+	font-size: 40px;
+	font-weight: 100px;	
+	margin-bottom: 20px;
+	margin-left: 35px;
+
+		
+	
+}
+
+.nav-link{
+	color:#222;
 	cursor: pointer;
 	font-size: s;
 	font-weight: 100px;
@@ -8,11 +22,16 @@
 
 .btn1{
 background-color:#222;
-color: white;
+color: #f1f1f1;
 }
 .navbar{
-
-	background-color: #222;
+	
+   padding: 2px;
+   background-color:#f1f1f1;
+	position: fixed;
+		z-index: 99;
+		width: 100%;
+	
 }
 .navbar-nav {
 	margin-left: 20px;
@@ -20,12 +39,195 @@ color: white;
 }
 
 .nav-link:hover {
-	color: #000;
+	color: orange;
+
 }
 
 .navbar-collapse {
 	justify-content: flex-end;
 }
-.footer{
-margin-top:500px;
+
+.x{
+	overflow-x: hidden;
+  }
+
+  .centre{
+	margin-top: 20px; 
+	background-image: url("../../assets/team3.jpg");
+	color:white;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	text-align: center;
+	font-size: large;
+	padding: 20px;
+	background-color: #222;
+	border-bottom-left-radius: 100px;
+  }
+
+ 
+ 
+
+  .sub-centre{
+	background-color: #f1f1f1;
+  }
+  label{
+	  margin-left: 120px;
+  }
+
+
+  .container{
+display:flex;
+flex-wrap:nowrap;
+width: 200px;
+height: 50px;
+background-color:#f1f1f1;
+
+
+  }
+.feature-title{
+text-align: center;
+background-color:#f1f1f1;
+
 }
+
+.flip-card {
+	background-color: transparent;
+	width: 300px;
+	height: 200px;
+	border: 1px solid #f1f1f1;
+	perspective: 1000px; 
+	margin-left: 20px;
+  }
+  
+  .flip-card-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	transition: transform 0.9s;
+	transform-style: preserve-3d;
+  }
+  
+  .flip-card:hover .flip-card-inner {
+	transform: rotateY(180deg);
+  }
+  
+  .flip-card-front, .flip-card-back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	-webkit-backface-visibility: hidden; 
+	backface-visibility: hidden;
+  }
+  
+  .flip-card-front {
+	background-color: #bbb;
+	color: black;
+  }
+  
+  .flip-card-back {
+	background-color:#f1f1f1;
+	color: black;
+	transform: rotateY(180deg);
+  }
+
+
+
+
+.features {
+	padding: 1em;
+	position: relative;
+	background-color: #f1f1f1;
+}
+
+.sub-feature{
+	position: relative;
+background-color: #f1f1f1;
+margin-top: 3%;
+}
+
+.card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	max-width: 300px;
+	margin: auto;
+	text-align: center;
+  }
+  
+  .card button {
+	border: none;
+	outline: 0;
+	padding: 12px;
+	color: #f1f1f1;
+	background-color: #f1f1f1;
+	text-align: center;
+	cursor: pointer;
+	width: 100%;
+	font-size: 18px;
+  }
+  
+  .card button:hover {
+	opacity: 0.7;
+  }
+
+  #picture{
+margin-top: 30px;
+
+  }
+
+  #notes{
+	margin-top: 30px;  
+  }
+.slide-show{
+	margin-top: 6%;
+	text-align: center;
+	background-color:#222;
+	padding: 20px;
+	border-bottom-right-radius: 150px;
+}
+
+.navbar-toggler{
+	background-color:white;
+	text-decoration: underline;
+	padding: 5px;
+	padding: 1.5rem 1rem;
+	border-bottom: 1px solid #dde0e2;
+}
+
+
+  .image-container {
+	width: 1500px;
+	background-color:#f1f1f1;
+	height: 300px;
+	clear: both;
+	position: relative;
+	-webkit-transition: left 2s;
+	-moz-transition: left 2s;
+	-o-transition: left 2s;
+	transition: left 2s;
+  }
+  .slide {
+	float: left;
+	margin: 0px;
+	padding: 0px;
+	position: relative;
+	background-color:#f1f1f1;
+
+  }
+
+.float{
+	position:fixed;
+	z-index: 999;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#f1f1f1;
+	color:black;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+}
+
+.mySlides {display:none;}
+
+ 

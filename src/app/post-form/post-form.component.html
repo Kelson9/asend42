@@ -1,0 +1,38 @@
+<div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <h5 class="text-white h4">Collapsed content</h5>
+      <span class="text-muted">Toggleable via the navbar brand.</span>
+    </div>
+  </div>
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" aria-expanded="false">
+      </button>
+    </div>
+  </nav>
+
+<p>
+<a routerLink="/posts" class="btn btn-primary">New Post</a>
+</p>
+
+<table class="table">
+<thead>
+<tr>
+<th>Title </th>
+<th>Event</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr *ngFor="let p of posts$ | async"> 
+<td>{{p?.title}} </td>
+<td>{{p.event}} </td>
+<td>{{p.description}} </td>
+
+</tr>
+
+
+</tbody>
+
+</table>
