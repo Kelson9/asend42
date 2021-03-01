@@ -1,108 +1,120 @@
-
-
-<div class="x" id="top">
-    <nav class="navbar navbar-expand-md">
-      <a class="navbar-brand" href="#">
-        <span style="color:#222; font-size: 40px;font-style: italic;">ASE</span> <span style="color:orange;  font-size: 30px;">ND</span> 
-        </a>
-    
-      <button class="navbar-toggler " type="button" 
-              (click)="toggleNavbar()" >
-        <span class="navbar-toggler-icon" ></span>
-      </button>
-    
-      <a href="#" class="float">
-        <i class="fa fa-arrow-up" aria-hidden="true" style="font-size: large;margin-left: 5px; margin-top: 20px;"></i>    </a>
-      <div class="collapse navbar-collapse"
-           [ngClass]="{ 'show': navbarOpen }">
-        <ul class="navbar-nav ">
-          <li class="nav-item">
-            <a class="nav-link active" href="">Home<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/home" (click)="logout()">Logout</a>
-          </li>
-          <li  *ngIf="auth.user$ | async as user;" class="nav-item">
-            <a class="nav-link" routerLink="/admin">Dashboard</a>
-          </li>
-          <ng-template #anonymousUser>
+ <div class="x" id="top">
+  <nav class="navbar navbar-expand-md">
+    <a class="navbar-brand" href="#">
+      <span style="color:#222; font-size: 40px;font-style: italic;">ASE</span> <span style="color:orange;  font-size: 30px;">ND</span> 
+      </a>
   
-            <li  class="nav-item">
-              <a class="nav-link"  routerLink="/login">Login</a>
-            </li>
-          </ng-template>
-             
+    <button class="navbar-toggler " type="button" 
+            (click)="toggleNavbar()" >
+      <span class="navbar-toggler-icon" >|||</span>
+    </button>
+  
+    <a href="#" class="float">
+      <i class="fa fa-arrow-up" aria-hidden="true" style="font-size: large;margin-left: 5px; margin-top: 20px;"></i>    </a>
+    <div class="collapse navbar-collapse"
+         [ngClass]="{ 'show': navbarOpen }">
+      <ul class="navbar-nav ">
+        <li class="nav-item">
+          <a class="nav-link active" href="">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home" (click)="logout()">Logout</a>
+        </li>
+        <li  *ngIf="auth.user$ | async as user;" class="nav-item">
+          <a class="nav-link" routerLink="/admin">Dashboard</a>
+        </li>
+        <ng-template #anonymousUser>
+
+          <li  class="nav-item">
+            <a class="nav-link"  routerLink="/login">Login</a>
+          </li>
+        </ng-template>
+           
+                        <li *ngIf="auth.user$ | async as user; else anonymousUser" class="nav-item">
+                <img class="img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}" style="width: 60%;"
+                alt="{{user.displayName}}">              </li>
+      </ul>
+    </div>
+  </nav> 
+
+<a href="top1" class="float">
+  <i class="fa fa-arrow-up" aria-hidden="true" style="font-size: large;margin-left: 5px; margin-top: 20px;"></i>    </a>
+  <div class="container">
+
+
+
+
+    <div class="col-md-10 col-sm-12 col-xs-12 center-block">
+
+        
+        <br><br><br><br><br>
+            <div class="alert alert-danger" *ngIf="error">
+                <p>{{ error }}</p>
+            </div>
+            <div *ngIf="isloading" style="text-align: center;" class="loading-text">
+                <app-spinner></app-spinner>
+            </div>
+        <form *ngIf="!isloading" class="create-form" [formGroup]="exampleForm" novalidate (ngSubmit)="onSubmit(exampleForm.value)">
+
+            <div class="col-md-4 col-sm-3 col-xs-12">
+                <input type="file" multiple (change)="detectFiles($event)" accept="image/x-png,image/gif,image/jpeg" class="form-control" formControlName="imgurl">
+                <img id="blah" height="200" width="200" class="img-rounded" [src]="imageSrc || 'http://placehold.it/180'" alt="your image" />
+
+                <div class="col-xs-2 percantage">
+                    <h3>{{ uploadPercent | async }}</h3>
+                </div>
+                <div class="col-xs-3" *ngIf="isimgloading" style="width: 30px; height: 30px;">
+                    <img src="/assets/Eclipse-1s-200px.gif" style="width: 60px; height: 60px;">
+                </div>
+                <div class="col-xs-7" *ngIf="uploadPercent && !isimgloading">
+                    <a href="{{downloadURL}}">preview Image</a>
+                </div>
+
+            </div>
+            <br>
+            <div class=" col-md-8 col-sm-9 col-xs-12">
+
+
+                <div class="form-group">
+                    <label for="comment">Name:</label>
+                    <div class="input-style">
+                        <input placeholder="Title" class="form-control" formControlName="sName">
+                    </div>
+                    <ng-container *ngFor="let validation of validation_messages.title">
+                        <div class="help-block has-error" *ngIf="exampleForm.get( 'sName').hasError(validation.type) && (exampleForm.get( 'sName').dirty || exampleForm.get( 'sName').touched)">
+                            {{validation.message}}</div>
+                    </ng-container>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="comment">Description:</label>
+                    <textarea class="form-control" rows="5" id="comment" formControlName="description"></textarea>
+                    <ng-container *ngFor="let validation of validation_messages.desc">
+                        <div class="help-block has-error" *ngIf="exampleForm.get( 'description').hasError(validation.type) && (exampleForm.get( 'description').dirty || exampleForm.get( 'description').touched)">
+                            {{validation.message}}</div>
+                        <div class="help-block has-error"  *ngIf="exampleForm.get( 'description').hasError( 'minlength') && ( exampleForm.get( 'description').touched)">
+                            Minimun 5 characters required in description</div>
+
+                    </ng-container>
+                </div>
+
                 
-                <li *ngIf="auth.user$ | async as user; else anonymousUser" class="nav-item">
-                  <img class="img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}" style="width: 60%;"
-                  alt="{{user.displayName}}">              </li>
-        </ul>
-      </div>
-  
-    </nav>
-  
-    
-  <a href="top1" class="float">
-    <i class="fa fa-arrow-up" aria-hidden="true" style="font-size: large;margin-left: 5px; margin-top: 20px;"></i>    </a>
-  
-    <div class="row" style="overflow-x: hidden;">
-  
-  <div class="col-sm-4 col-md-4 col-lg-4" style="margin-left: 5%;margin-top: 7%;">
-   
-    <form (ngSubmit)="save(f.value)" ngForm #f="ngForm">
-      <div class="form-group">
-        
-        <label for="title">Student Name</label>
-        <input #title="ngModel" ngModel name="title" id="title" type="text" class="form-control">
-      
-      </div>
-      <div class="form-group">
-        
-        <label for="event">School</label>
-        <input #event="ngModel"  ngModel name="event" id="event" type="text" class="form-control">
-      
-      </div>
-      
-      <div class="form-group">
-        
-        <label for="imageUrl">Photo</label>
-        <input #imageUrl="ngModel"  name="imageUrl" ngModel id="imageUrl" type="text" class="form-control">
-      </div>
-      <div lass="form-group">
-      <label for="description">Testimony</label>
-      <textarea #description="ngModel" name="description" ngModel class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <div class="form-group">
+                   
+                </div>
+                <div class="row submit-button-container">
+                    <div class="col-md-12">
+                        <button class="btn btn-primary submit-button" color="primary" type="submit" [disabled]="!exampleForm.valid">Create</button>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+
     </div>
-      <br>
-      <button class="btn btn-primary" type="submit">Save</button>
-      
-      </form>
-      
-  
-  </div>
-  
-  <div class="col-sm-6" style="margin-left: 5%;margin-top: 7%;">
-    <h3 style="text-align: center;">Preview</h3>
-  <div class="card" style="width:40rem;height: auto;" >
-  <img class="card-img-top" [src]="imageUrl.value "  alt="image">
-  
-  <div class="card-body">
-  <h4 class="card-title">{{title.value}}</h4>
-  <p class="card-text">{{event.value}}</p>
-  <p>{{description.value}}</p>
-  <br><br>
-  
-  </div>
-  </div>
-  <button class="btn btn-warning" style="width: 20%; margin-left: 40%; margin-top: 3%;" routerLink="/postform" routerLinkActive>See All</button>
-  
-  </div>
-  
-    </div>
-   
-  <br>
-  
-  
-  <div class="footer">
-      <app-footer></app-footer>
-  </div>
-  </div>
+</div>
+<div class="footer">
+    <app-footer></app-footer>
+</div>
+</div>

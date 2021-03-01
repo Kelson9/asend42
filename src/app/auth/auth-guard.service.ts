@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { CanActivate, Router, RouterStateSnapshot} from '@angular/router';
 import { AuthService } from './auth.service';
 import 'rxjs/add/operator/map';
-import { AppUser } from '../models/app-user';
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +18,5 @@ return this.auth.user$.map(user=>{
  this.router.navigate(["/"],{queryParams : { returnUrl : state.url}}); 
  return false;
 })
-  }
+  } 
 }

@@ -6,7 +6,7 @@
     
       <button class="navbar-toggler " type="button" 
               (click)="toggleNavbar()" >
-        <span class="navbar-toggler-icon" ></span>
+        <span class="navbar-toggler-icon" >|||</span>
       </button>
     
       <a href="#" class="float">
@@ -18,9 +18,9 @@
             <a class="nav-link active" href="">Home<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/home" (click)="logout()">Logout</a>
+            <a class="nav-link" routerLink="/home">Logout</a>
           </li>
-          <li  *ngIf="auth.user$ | async as user;" class="nav-item">
+          <li  class="nav-item">
             <a class="nav-link" routerLink="/admin">Dashboard</a>
           </li>
           <ng-template #anonymousUser>
@@ -38,7 +38,7 @@
       </div>
   
     </nav>
-    <div class="side" style="position: fixed;z-index: 1;background-color:#222;margin-top:8%">
+    <div class="side" style="position: fixed;z-index: 1;background-color:#222;margin-top:25%">
       <button class="btn btn-dark"><a href="http://asend4.blogspot.com/" style="font-weight: 100%;"> B</a></button><br><br>
       <button class="btn btn-warning"><a href=" https://wa.me/682830010"> W</a></button><br><br>
 
@@ -46,18 +46,37 @@
       </div>
     
     
-      
+    <div class="form" > 
+      <h3 style="margin-left:15%; font-size: 30px;margin-top: 15%; color: orange;"> Join ASEND</h3><br> 
 
-    <div class="form" style="height: 50vh; margin-top: 10%;border: 1px solid white; padding-left: 35%;width:100%;background-color: #f1f1f1;"> 
-     
-     
-      <h3 style="margin-left:15%;"> Join ASEND</h3><br>
+    <form #authForm="ngForm">
+
+      <div class="form-group">
+          <input type="email" id="email" placeholder="Email:" class="form-control" ngModel name="email" required email />
+      </div>
+      <div class="form-group">
+          <input type="password" id="password" placeholder="Password:" class="form-control" ngModel name="password" required minlength="6" />
+      </div>
+ 
+      <div class="form-group">
+          <button class="btn btn-primary" type="submit" [disabled]="!authForm.valid">
+              {{ isLoginMode ? 'Login' : 'Sign Up' }}
+          </button> |
+          <button class="btn btn-primary" (click)="onSwitchMode()" type="button">
+              Switch to {{ isLoginMode ? 'Sign Up' : 'Login' }}
+          </button>
+
+          <a [routerLink]="['/reset-password']" class="btn btn-link">Forget Password?</a>
+
+      </div> 
+      </form>
+       <h3 style="margin-left: 20%;">or</h3>
     <button class="btn btn-warning" (click)="login()" style="width:50%">Signup with Google</button><br><br>
   
-    <button class="btn btn-danger" (click)="login() " style="width:50%">Signup with Email</button><br><br>
-    <button class="btn btn-primary" (click)="login()" style="width:50%">Signup with facebook</button>
+      <button class="btn btn-primary" (click)="login()" style="width:50%; margin-bottom: 5%;" >Signup with facebook</button>
   
     </div>
+ 
  
    <div class="footer" id="contact">
     <app-footer></app-footer>

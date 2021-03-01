@@ -6,11 +6,11 @@
       
         <button class="navbar-toggler " type="button" 
                 (click)="toggleNavbar()" >
-          <span class="navbar-toggler-icon" ></span>
+          <span class="navbar-toggler-icon" > |||</span>
         </button>
       
         <a href="#" class="float">
-          <i class="fa fa-arrow-up" aria-hidden="true" style="font-size: large;margin-left: 5px; margin-top: 20px;"></i>    </a>
+          <i class="fa fa-arrow-up" aria-hidden="true" style="font-size: large;margin-left: 1px; margin-top: 20px;"></i>    </a>
         <div class="collapse navbar-collapse"
              [ngClass]="{ 'show': navbarOpen }">
           <ul class="navbar-nav ">
@@ -19,7 +19,7 @@
             </li>
       
             <li class="nav-item">
-              <a class="nav-link" href="#about">About</a>
+              <a class="nav-link" routerLink="/about">About</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#contact">Contact</a>
@@ -55,15 +55,16 @@
       </nav>
      
         <div class="slide-show">
-          <div class="side" style="position: fixed;z-index: 1;background-color:#222;">
+          <div class="side" style="position: fixed;z-index:100;background-color:#222;margin-top: 20%;">
             <button class="btn btn-dark"><a href="http://asend4.blogspot.com/" style="font-weight: 100%;color:#f1f1f1"> B</a></button><br><br>
             <button class="btn btn-dark"><a href=" https://wa.me/682830010"style="font-weight: 100%;color:#f1f1f1"> W</a></button><br><br>
 
             <button class="btn btn-dark"><a href="http://asend4.blogspot.com/"style="font-weight: 100%;color:#f1f1f1"> F</a></button>
 
             
-            
             </div>
+            <mat-spinner></mat-spinner>
+
           <div class="row">
     <div class="col-lg-6" id="picture">
       <h4  style="font-size:20px; color:#f1f1f1;">ASSOCIATION OF ENGINEERING<br> AND MEDICAL STUDENTS</h4> 
@@ -79,223 +80,143 @@
 
 </div> 
   </div>
- </div>
-
-<!-- <div class="show">
-  <h3 style=" font-size: 20px;color: black;text-align: center;">WE ARE A FAMILY. PARTNER WITH US TODAY</h3>
-
-</div> -->
-<!-- <div>Some tags before</div>
-<owl-carousel-o [options]="customOptions">
-  <ng-template carouselSlide>Slide 1</ng-template>  
-  <ng-template carouselSlide>Slide 2</ng-template>  
-  <ng-template carouselSlide>Slide 3</ng-template>  
-</owl-carousel-o>
-<div>Some tags after</div> -->
-    
+ </div>    
     <div class="centre" id="about">
-    <h4 style="color:white;font-weight: 7000px;">ASSOCIATION OF ENGINEERING AND MEDICAL STUDENTS</h4>
-    <p style="color:white; font-weight: 7000px;">We are an organisation aimed at bridging that gap between high school and university.<br>We started as a prep class in 2014 and throughout we have stood the test of time <br>by creating awareness to youths.
-     <br>We orientate them,prepare them for concours nationwide and also mentor them<br>   
-    <br>Together we can do much.
-    <br><br>
+      <mat-carousel
+      timings="500ms ease-in"
+      [autoplay]="true"
+      interval="1000"
+      color="accent"
+      maxWidth="auto"
+      proportion="50"
+      slides="infinite"
+      [loop]="true"
+      [hideArrows]="false"
+      [hideIndicators]="false"
+      [useKeyboard]="true"
+      [useMouseWheel]="false"
+      orientation="ltr"
+    >
+      <mat-carousel-slide
+        #matCarouselSlide
+        *ngFor="let slide of slides; let i = index"
+        [image]="slide.image"
+        overlayColor="#00000040"
+        [hideOverlay]="false"
+      >
+      <div
+      style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center"
+    >
+      <h1 *ngIf="i==0" style="background-color:black; padding: 10px;color:white ;">ASEND</h1>
+      <h1 *ngIf="i==2" style="background-color:black; padding: 10px;color:white ;">WE ARE A FAMILY</h1>
 
+      <h1 *ngIf="i==4" style="background-color:black; padding: 10px;color:white ;">JOIN US TODAY</h1>
 
-    <img src="../../assets/ASENDFG.PNG" style="border-radius: 50%;">
+      <h1 *ngIf="i==6" style="background-color:black; padding: 10px;color:white ;">PARTNER WITH US</h1>
 
-    </p>
-    <h4 style="color:white;  font-weight: 7000px; ">WHY CHOOSE US?</h4>
-    <p style="color:white;  font-weight: 7000px; ">Being a leader is not an easy task <br>It has never been a day job
-    
-    <br>There are big responsibilities that come with it
-    <br>If you want to become a leader in the future you have to start preparing from now.
-    </p>
+      <h1  *ngIf="i==8" style="background-color:black; padding: 10px;color:white ;"> WE CAN DO MUCH</h1>
 
-    <button class="btn btn-dark" (click)="more1()">See More</button> 
-<div style="color: white;" *ngIf="isOpen1">We have a team of well trained staff from well renounced Universities all over the country. We have the best and we aim at giving you the best...
-
-</div>
+    </div>
+    </mat-carousel-slide>
+    </mat-carousel>
 </div> 
 
-   
-    <div class="sub-feature" >
-      <h4 style="text-align: center; margin-top:2%;">WE OFFER</h4>
-      <div class="row">
-      <div class="col-md-4">
-<img src="../../assets/AsendMentor.jpg"  style="border-radius: 50%; margin-left: 60px; width: 65%;"><br><br>
-<h4  style="margin-left: 30%;font-size: 15px;">MENTORSHIP</h4>
+<div class="swipe" style="padding-top: 10px;background-color: #f1f1f1; text-align: center;">  
+  <h2 style="background-color: #f1f1f1; text-align: center;">WE OFFER</h2>
 
-      </div>
-      <div class="col-md-4">
-        <br>
-        <img src="../../assets/direction.jpg"  style="border-radius: 50%; margin-left: 50px; width: 60%;"><br><br>
-        <h4  style="margin-left: 35%;">TEACHING</h4>
+<swiper
+      [slidesPerView]="4"
+      [spaceBetween]="25"
+      (swiper)="onSwiper($event)"
+      (slideChange)="onSlideChange()"
+      [navigation]="true"
+      [pagination]="{ clickable: true }"
+      [autoplay]="true"
+    >
 
+    <ng-template swiperSlide>  
+<p>MENTORSHIP</p>
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum beatae non enim libero. Nemo debitis ad est doloribus autem, commodi voluptates hic possimus laboriosam qui accusamus porro veritatis, blanditiis quos.
+</ng-template>
+<ng-template swiperSlide>   
+ <p> PREPARATORY CLASSES  </p> 
+ Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum beatae non enim libero. Nemo debitis ad est doloribus autem, commodi voluptates hic possimus laboriosam qui accusamus porro veritatis, blanditiis quos.
 
-      </div>
-      <div class="col-md-4">
-        <br>
-        <img src="../../assets/youths1.jpg"  style="border-radius: 50%; margin-left: 50px; width:60%"><br><br>
-        <h4  style="margin-left: 30%;font-size: 15px;">CAREER ORIENTATION</h4>
+</ng-template>
+<ng-template swiperSlide> 
+ <p> CAREER ORIENTATION   </p> 
+ Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum beatae non enim libero. Nemo debitis ad est doloribus autem, commodi voluptates hic possimus laboriosam qui accusamus porro veritatis, blanditiis quos.
 
+</ng-template>
+<ng-template swiperSlide>  
+  <p>TECH TRAININGS  </p>
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum beatae non enim libero. Nemo debitis ad est doloribus autem, commodi voluptates hic possimus laboriosam qui accusamus porro veritatis, blanditiis quos.
 
-      </div>
-      </div>
-         
-      </div>
+</ng-template>
+<ng-template swiperSlide>
+ <p>  WEB HOSTING   </p> 
+ Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum beatae non enim libero. Nemo debitis ad est doloribus autem, commodi voluptates hic possimus laboriosam qui accusamus porro veritatis, blanditiis quos.
+
+</ng-template>
+        </swiper> 
+</div>
 
 
 
     <div class="sub-centre">
-     <h4 style="text-align: center;font-size: 20px; background-color: #f1f1f1;color:#222; margin-top:1%;">TESTIMONIES</h4>
+     <h2 style="padding-top: 30px;background-color: #f1f1f1; text-align: center;">OUR IMPACT</h2> 
     
-      <div class="row slide active">
+      <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-4">
             <br>
-            <img src="../../assets/IMG-20200304-WA0170.jpg" alt="asend"style="border-radius: 50%; margin-left: 50px; width:60%;">
-            <h6  style="font-size: 15px;">My name is..I was raised through ASEND
-            Today I am proud to be in a medical school</h6>
-            <p><button class="btn btn-dark" style="margin-left: 30%; font-size: 15px;">Thanks to ASEND</button></p>
+            <img src="../../assets/ousman.PNG" alt="asend"style="border-radius: 50%; margin-left: 50px; width:60%;">
+            <h6  style="font-size: 15px; text-align: center;">We have impacted the lives of ..</h6>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4">
             <br>
             <img src="../../assets/ousman.PNG" alt="asend" style="border-radius: 50%; margin-left: 50px; width:60%;">
-            <h6  style="font-size: 15px;"> My name is ...   I was raised through ASEND
-            Today I am proud to be in a medical school</h6>
-            <p><button class="btn btn-dark" style="margin-left: 30%;">Thanks to ASEND</button></p>
+            <h6  style="font-size: 15px;text-align: center;"> We have impacted the lives of ..</h6>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4">
           <br>
 
                   <img src="../../assets/testimony2.jpg" alt="asend" style="margin-left: 50px; width:60%; border-radius: 50%;">
-                  <h6  style="font-size: 15px;">My name is...I was raised through ASEND
-            Today I am proud to be in an Engineering school</h6>
-            <p><button class="btn btn-dark" style="margin-left:30%">Thanks to ASEND</button></p>
+                  <h6  style="font-size: 15px; text-align: center;">We have impacted the lives of ..</h6>
                 </div>
-      </div> 
-    
-      <div class="row slide">
-        <div class="col-lg-4 col-md-4 col-sm-4">
-            <br>
-            <img src="../../assets/testimony2.jpg" alt="asend"style="border-radius: 50%; margin-left: 50px; width:60%;">
-            <h6  style="font-size: 15px;">My name is..I was raised through ASEND
-            Today I am proud to be in a medical school</h6>
-            <p><button class="btn btn-dark" style="margin-left: 30%; font-size: 15px;">Thanks to ASEND</button></p>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4">
-            <br>
-            <img src="../../assets/testimony2.jpg" alt="asend" style="border-radius: 50%; margin-left: 50px; width:60%;">
-            <h6  style="font-size: 15px;"> My name is ...   I was raised through ASEND
-            Today I am proud to be in a medical school</h6>
-            <p><button class="btn btn-dark" style="margin-left: 30%;">Thanks to ASEND</button></p>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4">
-          <br>
-
-                  <img src="../../assets/testimony2.jpg" alt="asend" style="margin-left: 50px; width:60%; border-radius: 50%;">
-                  <h6  style="font-size: 15px;">My name is...I was raised through ASEND
-            Today I am proud to be in an Engineering school</h6>
-            <p><button class="btn btn-dark" style="margin-left:30%">Thanks to ASEND</button></p>
-                </div>
-      </div> 
-    
-      <div class="row slide">
-        <div class="col-lg-4 col-md-4 col-sm-4">
-            <br>
-            <img src="../../assets/testimony2.jpg" alt="asend"style="border-radius: 50%; margin-left: 50px; width:60%;">
-            <h6  style="font-size: 15px;">My name is..I was raised through ASEND
-            Today I am proud to be in a medical school</h6>
-            <p><button class="btn btn-dark" style="margin-left: 30%; font-size: 15px;">Thanks to ASEND</button></p>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4">
-            <br>
-            <img src="../../assets/testimony2.jpg" alt="asend" style="border-radius: 50%; margin-left: 50px; width:60%;">
-            <h6  style="font-size: 15px;"> My name is ...   I was raised through ASEND
-            Today I am proud to be in a medical school</h6>
-            <p><button class="btn btn-dark" style="margin-left: 30%;">Thanks to ASEND</button></p>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4">
-          <br>
-
-                  <img src="../../assets/testimony2.jpg" alt="asend" style="margin-left: 50px; width:60%; border-radius: 50%;">
-                  <h6  style="font-size: 15px;">My name is...I was raised through ASEND
-            Today I am proud to be in an Engineering school</h6>
-            <p><button class="btn btn-dark" style="margin-left:30%">Thanks to ASEND</button></p>
-                </div>
-      </div> 
-    
-    
-    
+    </div>    
     </div>
+    <div class="test" style="text-align: center;padding-top: 10px;">  <h2 style="padding-top: 30px;background-color: #f1f1f1;">TESTIMONIES</h2> 
 
-    <div class="mail" style="margin-top: 5px;margin-bottom: 5px;background-color: #f1f1f1;z-index: 200%;">
-      <button class="btn btn-dark" style=" width:30%;margin-left: 30%;">Subsribe for a NewsLetter</button><br><br>
-      <button class="btn btn-dark" style="width: 30%; margin-left: 30%;"><a href="mailto:kelsonngoe@gmail.com" style="text-decoration: none;">  Send Email</a></button>
-    </div>
- 
+    <swiper
+    [slidesPerView]="3"
+    [spaceBetween]="50"
+    (swiper)="onSwiper($event)"
+    (slideChange)="onSlideChange()"
+    [navigation]="true"
+    [pagination]="{ clickable: true }"
+  >
+    <ng-template swiperSlide  *ngFor="let i of allpost  ; let c = index" style="margin-bottom: 10px;">
+      <a [routerLink]="[c]"  style="text-decoration:none;cursor: pointer;">
+        <div class="col-md-4 col-xs-12 img-col col-md-push-8">
+            <img src="{{ i.imgurl }} " alt="Avatar " style="width: 100%;border-radius: 50%" class="img-responsive" alt="img" />
+        </div>
+        <div class="col-md-8 col-xs-12 main-content col-md-pull-4">
+            <h2 class="title">
+                {{ i.sName }}
+            </h2>
 
-
-    <div class="founders">
-
-      <div class=" features">
+            <p>{{i.description}}</p>
+        </div>
         
-        <div class="row">
-          
-          <div class="col-lg-4 col-md-4 col-sm-6">	
-    
-              <div class="flip-card">
-                  <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                    <img src="../assets/David.PNG" alt="Avatar"  style="width:100%">
-                    </div>
-                    <div class="flip-card-back">
-                    <h1>Telecom Engineer at Camtel</h1>
-                    <p></p>
-                    <p></p>
-                    </div>
-                  </div>
-                  </div>
-                  <br><br>
-                  <h5 class="feature-title">FOUNDER</h5>
-                  <h6 class="feature-title">Engr.David Baar</h6>
-            </div><br><br>
-            <div class="col-lg-4 col-md-4 col-sm-6">	
-    
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                      <div class="flip-card-front">
-                      <img src="../assets/cabrel.PNG" alt="Avatar"  style="width:100%">
-                      </div>
-                      <div class="flip-card-back">
-                      <h1>Final year medicine student</h1>
-                      </div>
-                    </div>
-                    </div>
-                    <br>
-                    <h5 class="feature-title">CO-FOUNDER</h5>
-                    <h6 class="feature-title">Dr.Cabrel</h6>
-              </div>
-            
-              <div class="col-lg-4 col-md-4 col-sm-6">	
-                 
-                  <div class="flip-card">
-                      <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                        <img src="../assets/ousman.PNG"  alt="Avatar" style="width:100%">
-                        
-                        </div>
-                        <div class="flip-card-back">
-                        <h1>Fourth year medicine student</h1>
-                        </div>
-                      </div>
-                      </div>
-                      <br><br><br><br>
-                      <h5 class="feature-title">REGIONAL CORDINATOR</h5>
-                        <h6 class="feature-title">Mr.Ousman Alain</h6>
-                </div>
-          </div>
-        </div> 
-      </div>
+    </a>
+    </ng-template>
+  </swiper>
+    </div>
+  <div class="mail" style="margin-top: 2px;margin-bottom: 5px;background-color: #f1f1f1;z-index: 200%;">
+    <button class="btn btn-dark" style=" width:50%;margin-left: 30%;" routerLink="/news">Subsribe for a NewsLetter</button><br><br>
+    <button class="btn btn-dark" style="width: 50%; margin-left: 30%;"><a href="mailto:kelsonngoe@gmail.com" style="text-decoration: none;">  Send Email</a></button>
+  </div>
+
      <div class="footer" id="contact">
       <app-footer></app-footer>
 </div>

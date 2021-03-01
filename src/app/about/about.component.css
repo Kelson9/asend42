@@ -1,0 +1,205 @@
+
+.x{
+overflow-x: hidden;
+
+}
+.navbar-brand{
+
+	color: #f1f1f1;
+	cursor: pointer;
+	font-size: 40px;
+	font-weight: 100px;	
+	margin-bottom: 20px;
+	margin-left: 35px;
+
+		
+	
+}
+
+.nav-link{
+	color:#222;
+	cursor: pointer;
+	font-size: s;
+	font-weight: 100px;
+}
+
+.btn1{
+background-color:#222;
+color: #f1f1f1;
+}
+.navbar{
+	
+   padding: 2px;
+   background-color:#f1f1f1;
+		z-index: 99;
+		width: 100%;
+        position: fixed;
+	
+}
+.navbar-nav {
+	margin-left: 20px;
+
+}
+
+.nav-link:hover {
+	color: orange;
+
+}
+
+.navbar-collapse {
+	justify-content: flex-end;
+}
+
+.navbar-toggler{
+	text-decoration: underline;
+	padding: 5px;
+	border-bottom: 1px solid #dde0e2;
+}
+
+
+/* .mission{
+
+}
+
+.vision{
+
+} */
+.card{
+    background-color: #f1f1f1;
+    border-radius: 5%;
+    height: 70vh;
+    margin-left:10px;
+    width: 100%;
+      transform: scale(1);
+      transition: transform .5s;
+      position: relative;
+  
+  }
+  
+  .card:hover{
+      transition: ease-out;
+      transition-duration: 0.9s;
+      transform: scale(0.9);
+      
+}
+
+.card,p,h3{
+    margin-left: 7px;
+}
+.vision{
+margin-top:5%;
+background-color: #f1f1f1;
+padding: 1em;
+
+
+}
+.slide{
+  margin-top: 80%;
+}
+.mission{
+    justify-content:space-evenly;
+    margin-top:5%;
+      padding: 3em;
+      position: relative;
+      background-color: #f1f1f1;
+}
+
+.team{
+margin-top:2%;
+text-align: center;
+
+}
+
+.container{
+    display:flex;
+    flex-wrap:nowrap;
+    width: 200px;
+    background-color:#f1f1f1;
+    
+    
+      }
+    .feature-title{
+    text-align: center;
+    background-color:#f1f1f1;
+    
+    }
+    
+    .flip-card {
+        background-color: transparent;
+        width: 300px;
+        height: 200px;
+        border: 1px solid #f1f1f1;
+        perspective: 1000px; 
+        margin-left: 20px;
+      }
+      
+      .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.9s;
+        transform-style: preserve-3d;
+      }
+      
+      .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+      }
+      
+      .flip-card-front, .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden; 
+        backface-visibility: hidden;
+      }
+      
+      .flip-card-front {
+        background-color: #bbb;
+        color: black;
+      }
+      
+      .flip-card-back {
+        background-color:#f1f1f1;
+        color: black;
+        transform: rotateY(180deg);
+      }
+    
+    
+    
+    
+    .features {
+        margin-top: 2%;
+        padding: 1em;
+        position: relative;
+        background-color: #f1f1f1;
+    }
+    
+    .sub-feature{
+        position: relative;
+    margin-top: 3%;
+    }
+    
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        margin: auto;
+        text-align: center;
+      }
+      
+      .card button {
+        border: none;
+        outline: 0;
+        padding: 12px;
+        color: #f1f1f1;
+        background-color: #f1f1f1;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+      }
+      
+      .card button:hover {
+        opacity: 0.7;
+      }
+    

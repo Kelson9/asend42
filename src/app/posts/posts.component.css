@@ -54,7 +54,6 @@ color: #f1f1f1;
 
 
 .navbar-toggler{
-	background-color:white;
 	text-decoration: underline;
 	padding: 5px;
 	padding: 1.5rem 1rem;
@@ -90,3 +89,45 @@ color: #f1f1f1;
 
 
  
+
+
+input[type="file"] {
+    width: 200px;
+	
+}
+input[type="text"] {
+    width: 200px;
+	padding: 100px;
+	background-color: #f1f1f1;
+	
+}
+form{
+background-color: #f1f1f1;
+margin-left: 30px;
+margin-bottom: 20px;
+
+}
+input[type="file"] {
+    width: 200px;
+}
+
+.col-md-4.col-sm-3.col-xs-12 {
+    margin-bottom: 25px;
+}
+
+.percantage {
+    width: 29%;
+}
+
+.center-block {
+    float: none
+}
+
+.col-xs-7 {
+    padding-top: 15px;
+}
+
+.submit-button{
+margin-bottom: 20px;
+
+}

@@ -1,53 +1,350 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/auth";
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import * as firebase from 'firebase';
-import { ActivatedRoute } from '@angular/router';
-import { AppUser } from '../models/app-user';
-import { UserService } from '../user.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AppUser, User } from '../models/app-user';
+// import { UserService } from '../user.service';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/Observable/of';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { catchError, tap } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
+import { environment } from 'src/environments/environment';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
+
+    
+// export interface AuthResponseData {
+//   kind: string;
+//   idToken: string;
+//   email: string;
+//   refreshToken: string;
+//   expiresIn: string;
+//   localId: string;
+// }  
+   
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-user$:Observable<firebase.User>
- constructor(
-      public afAuth: AngularFireAuth, private route:ActivatedRoute,private userService:UserService
-    ) {     this.user$= afAuth.authState;
+// user$:Observable<firebase.User>
+isAuthenticated = false;
+api = environment.firebase.apiKey
+user = new BehaviorSubject<User>(null);
+private tokenExpirationTimer: any;
+userdata = null
+userData: any;
+LoginData = new BehaviorSubject<any>(null);
+registered?: boolean;
+
+user$: Observable<User>;
+
+  
+    constructor(private http: HttpClient,
+      public afAuth: AngularFireAuth,private route:ActivatedRoute,  private afs: AngularFirestore,private router: Router,
+      private toastr: ToastrService,
+      public ngZone: NgZone) {
+        this.user$ = this.afAuth.authState
+.switchMap(user => {
+  if (user) {
+    return this.afs.doc<User>(`users/${user.uid}`).valueChanges()
+  } else {
+    return Observable.of(null)
+  }
+})
+
     }
-
+    login() {
+      const provider = new firebase.auth.GoogleAuthProvider()
+      return this.oAuthLogin(provider);
+    }
   
-    login(){
-let returnUrl=this.route.snapshot.queryParamMap.get('returnUrl') || '/';
-localStorage.setItem('returnUrl',returnUrl);
-      this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider())
-          }
-      
-          logout(){
-      
-            this.afAuth.auth.signOut();
-          }
+    private oAuthLogin(provider) {
+      return this.afAuth.auth.signInWithPopup(provider)
+        .then((credential) => {
+          this.updateUserData(credential.additionalUserInfo.isNewUser)
+        })
+    }
   
-
-          get appUser$():Observable<AppUser>{
-
-            // return  this.user$.switchMap(user=>{
-            //   if(user)
-            // return this.userService.get(user.uid)
-
-            return Observable.of(null);
-
-        
+    signOut() {
+      this.afAuth.auth.signOut()
+    }
+  
+    private updateUserData(user) {
+      // Sets user data to firestore on login
+      const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
+      const data: User = {
+        uid: user.uid,
+        email: user.email,
+        photoURL:user.photoURL,
+       displayName:user.displayName,
+        emailVerified:user.emailVerified,
+        roles: {
+          admin:false
+        }
+      }
+      return userRef.set(data, { merge: true }) 
+    }
   }
 
+//// Get auth data, then get firestore user document || null
 
-}
+
+//  login(){ 
+// let returnUrl=this.route.snapshot.queryParamMap.get('returnUrl') || '/';
+// localStorage.setItem('returnUrl',returnUrl);
+//       this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider())
+        //  }
+      
+          // logout(){
+      
+          //   this.afAuth.auth.signOut();
+          // }
+  
+
+          // get appUser$():Observable<AppUser>{
 
 
+          //   return Observable.of(null);
+
+          // }
+
+
+
+   
+
+    // signup(email: string, password: string) {
+    //   return this.http
+    //     .post<AuthResponseData>(
+    //       'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=' + this.api,
+    //       {
+    //         email: email,
+    //         password: password,
+    //         returnSecureToken: true
+    //       }
+    //     )
+    //     .pipe(
+    //       catchError(this.handleError),
+    //       tap(resData => {
+    //         this.handleAuthentication(
+    //           resData.email,
+    //           resData.localId,
+    //           resData.idToken,
+    //           +resData.expiresIn
+    //         );
+  
+    //       })
+    //     );
+    // }
+
+    // login1(email: string, password: string) {
+    //   return this.http
+    //     .post<AuthResponseData>(
+    //       'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=' + this.api,
+    //       {
+    //         email: email,
+    //         password: password,
+    //         returnSecureToken: true
+    //       }
+    //     )
+    //     .pipe(
+    //       catchError(this.handleError),
+    //       tap(resData => {
+    //         this.handleAuthentication(
+    //           resData.email,
+    //           resData.localId,
+    //           resData.idToken,
+    //           +resData.expiresIn
+    //         );
+    //       })
+    //     );
+    // }
+  
+    // // logout1() {
+    //   return this.afAuth.auth.signOut().then(() => {
+    //     this.user.next(null);
+  
+    //     localStorage.removeItem('userData');
+    //     if (this.tokenExpirationTimer) {
+    //       clearTimeout(this.tokenExpirationTimer);
+    //     }
+    //     this.tokenExpirationTimer = null;
+  
+    //     this.router.navigate(['/auth']);
+    //   })
+  
+    // }
+  
+    // autoLogout(expirationDuration: number) {
+    //   this.tokenExpirationTimer = setTimeout(() => {
+    //     this.logout();
+    //   }, expirationDuration);
+    // }
+  
+    // private handleAuthentication(
+    //   email: string,
+    //   userId: string,
+    //   token: string,
+    //   expiresIn: number
+    // ) {
+    //   const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
+    //   const user = new User(email, userId, token, expirationDate);
+    //   this.userdata = user
+    //   this.user.next(user);
+    //   this.autoLogout(expiresIn * 1000);
+    //   localStorage.setItem('userData', JSON.stringify(user));
+    //   this.isAuthenticated = true;
+  
+    // }
+  
+    // private handleError(errorRes: HttpErrorResponse) {
+    //   let errorMessage = 'An unknown error occurred!';
+    //   if (!errorRes.error || !errorRes.error.error) {
+    //     return throwError(errorMessage);
+    //   }
+    //   switch (errorRes.error.error.message) {
+    //     case 'EMAIL_EXISTS':
+    //       errorMessage = 'This email exists already';
+    //       break;
+    //     case 'EMAIL_NOT_FOUND':
+    //       errorMessage = 'This email does not exist.';
+    //       break;
+    //     case 'INVALID_PASSWORD':
+    //       errorMessage = 'This password is not correct.';
+    //       break;
+    //   }
+    //   return throwError(errorMessage);
+    // }
   
   
+  
+    // isLoggedIn(): boolean {
+    //   this.user.subscribe(userdata => {
+    //     this.userdata = userdata
+    //   })
+    //   if (this.userdata !== null) {
+  
+    //     return true;
+    //   }
+    // }
+  
+    // sendEmailVerification() {
+    //   this.afAuth.auth.currentUser.sendEmailVerification()
+  
+    //   this.router.navigate(['auth']);
+    // }
+  
+    // async sendPasswordResetEmail(passwordResetEmail: string) {
+    //   return await this.afAuth.auth.sendPasswordResetEmail(passwordResetEmail)
+    //     .then(() => {
+    //       if (this.isAuthenticated) {
+    //         this.logout()
+    //       }
+    //       this.router.navigate(['auth']);
+    //       this.showSuccess();
+    //     })
+  
+    // }
+  
+  
+    // SignUp(email, password) {
+    //   return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+    //     .then((result) => {
+  
+    //       this.logout()
+    //       this.SendVerificationMail(); // Sending email verification notification, when new user registers
+    //     })
+    // }
+  
+    // SendVerificationMail() {
+    //   return this.afAuth.auth.currentUser.sendEmailVerification()
+    //     .then(() => {
+    //       this.showError()
+    //       this.router.navigate(['verify-mail']);
+  
+  
+  
+    //     })
+    //     .catch(e => {
+    //       this.toastr.warning(e.message, 'Alert', {
+    //         timeOut: 5000
+    //       })
+    //     })
+  
+    // }
+  
+  
+    // SignIn(email, password) {
+    //   return this.afAuth.auth.signInWithEmailAndPassword(email, password)
+    //     .then((result) => {
+    //       this.LoginData.next(result)
+  
+  
+    //       if (result.user.emailVerified !== true) {
+    //         this.SendVerificationMail();
+  
+    //       }
+    //       else {
+    //         this.SetUserData(result.user);
+    //       }
+  
+    //     })
+  
+  
+    // }
+  
+    // isLoggedIn1() {
+    //   const user = JSON.parse(localStorage.getItem('user'));
+    //   this.user.next(user)
+    //   return (user !== null && user.emailVerified !== false) ? true : false;
+    // }
+  
+    // SetUserData(user) {
+  
+    //   const userData: User1 = {
+    //     uid: user.uid,
+    //     email: user.email,
+    //     displayName: user.displayName,
+    //     photoURL: user.photoURL,
+    //     emailVerified: user.emailVerified
+    //   }
+  
+  
+  
+    //   this.afAuth.authState.subscribe(user => {
+    //     if (user) {
+    //       this.userData = user;
+  
+    //       localStorage.setItem('user', JSON.stringify(this.userData));
+    //       const user1 = JSON.parse(localStorage.getItem('user'));
+  
+    //       this.user.next(user1)
+    //     } else {
+    //       localStorage.setItem('user', null);
+    //       JSON.parse(localStorage.getItem('user'));
+    //     }
+    //   })
+  
+    // }
+    // showSuccess() {
+    //   this.toastr.success('Password Link Sent', 'Please check your registered email', {
+    //     timeOut: 20000
+    //   });
+    // }
+    // showError() {
+    //   this.toastr.info('Email Verfication Link Sent.Verify Using the link', 'Please check your registered email', {
+    //     timeOut: 5000
+    //   });
+    // }
+  
+    // showerrorForResetMail() {
+    //   this.toastr.error('Error while sending Reset Password Link', 'Error ', {
+    //     timeOut: 5000
+    //   });
+    // }
 
- 
+
+
+
 
