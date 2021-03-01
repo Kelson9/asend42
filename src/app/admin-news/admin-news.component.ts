@@ -13,7 +13,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class AdminNewsComponent implements OnInit {
 navbarOpen=false;
   posts$;
-  constructor(private post:PostService,private auth:AuthService,private afAuth:AngularFireAuth,private router:Router,private spinner:NgxSpinnerService) {
+  constructor(private post:PostService,public  auth:AuthService,private afAuth:AngularFireAuth,private router:Router,private spinner:NgxSpinnerService) {
      this.posts$=this.post.getAll();
 
    }

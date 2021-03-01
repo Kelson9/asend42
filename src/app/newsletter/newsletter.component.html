@@ -30,7 +30,7 @@
                 <a class="nav-link"  href="http://asend4.blogspot.com/">Blog</a>
               </li>
                 
-                <li *ngIf="auth.user$ | async as user; else anonymousUser" class="nav-item">
+                <li *ngIf="auth.user$ | async as user;" class="nav-item">
                   <img class="img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}" style="width: 60%;"
                   alt="{{user.displayName}}">              </li>
         </ul>
