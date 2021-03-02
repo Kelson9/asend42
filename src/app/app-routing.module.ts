@@ -22,7 +22,7 @@ const routes: Routes = [
   },
   { 
     path: 'posts',
-    component: PostsComponent
+    component: PostsComponent,canActivate:[AuthGuard]
   },
   {
     path: 'login',
@@ -30,12 +30,12 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    component: AdmindashboardComponent
+    component: AdmindashboardComponent,canActivate:[AuthGuard]
   },
 
   {
     path: 'adminT',
-    component:AdminTestimoniesComponent
+    component:AdminTestimoniesComponent,canActivate:[AuthGuard]
   },
   {
     path: 'allPosts',
@@ -45,13 +45,13 @@ const routes: Routes = [
     path: 'about',
     component:AboutComponent
   },
-  { path: 'myposts', redirectTo: 'myposts/allpost', pathMatch: 'full'},
+  { path: 'myposts', redirectTo: 'myposts/allpost', pathMatch: 'full',canActivate:[AuthGuard] },
 
-  { path: 'myposts/:type', component: PostFormComponent},
+  { path: 'myposts/:type', component: PostFormComponent ,canActivate:[AuthGuard]},
   { path: 'myposts', redirectTo: 'myposts/allpost', pathMatch: 'full' },
-  { path: 'myposts/:type/:id', component:PostformDetailsComponent},
+  { path: 'myposts/:type/:id', component:PostformDetailsComponent,canActivate:[AuthGuard]},
   { path: 'news', component:NewsletterComponent},
-  { path: 'adminNews', component:AdminNewsComponent,},
+  { path: 'adminNews', component:AdminNewsComponent,canActivate:[AuthGuard]},
 
 
 
