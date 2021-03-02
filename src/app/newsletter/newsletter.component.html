@@ -21,10 +21,10 @@
           </li>
          
           <li  class="nav-item">
-            <a class="nav-link" routerLink="/posts">Posts</a>
+            <a class="nav-link" routerLink="/allPosts">Posts</a>
           </li>  
             <li  class="nav-item">
-              <a class="nav-link"  routerLink="/login">Login</a>
+              <a class="nav-link"  routerLink="/about">About</a>
             </li>
             <li  class="nav-item">
                 <a class="nav-link"  href="http://asend4.blogspot.com/">Blog</a>
@@ -44,7 +44,7 @@
   
     <div class="row" style="overflow-x: hidden;">
   
-  <div class="col-sm-4 col-md-4 col-lg-4" style="margin-left: 5%;margin-top: 7%;">
+  <div class="col-sm-4 col-md-4 col-lg-4" style="margin-left: 5%;margin-top: 7%;width: 80%;">
    
     <form (ngSubmit)="save(f.value)" ngForm #f="ngForm">
       <div class="form-group">
@@ -64,7 +64,7 @@
               </div>
       <div lass="form-group">
       <label for="description">Tel</label>
-      <textarea #description="ngModel" name="description" ngModel class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <input #description="ngModel" name="description" ngModel class="form-control" id="exampleFormControlTextarea1" rows="3">
     </div>
       <br>
       <button class="btn btn-primary" type="submit">Send</button>
@@ -74,9 +74,9 @@
 
   </div>
   
-  <div class="col-sm-6" style="margin-left: 5%;margin-top: 7%;">
+  <div class="col-sm-6" style="margin-left: 5%;margin-top: 7%;width: 80%;">
     <h3 style="text-align: center;">Preview</h3>
-  <div class="card" style="width:40rem;height: auto;" >  
+  <div class="card" style="height: auto;" >  
   <div class="card-body">
   <h4 class="card-title"> Name:{{title.value}}</h4>
   <p class="card-text">Email:{{event.value}}</p>

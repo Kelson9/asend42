@@ -16,19 +16,14 @@
           <a class="nav-link active" href="">Home<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/" (click)="logout()">Logout</a>
+          <a class="nav-link" href="http://asend4.blogspot.com/" >Blog</a>
         </li>
-        <li  *ngIf="auth.user$ | async as user;" class="nav-item">
-          <a class="nav-link" routerLink="/admin">Dashboard</a>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/allPosts">Posts</a>
         </li>
-        <ng-template #anonymousUser>
-
-          <li  class="nav-item">
-            <a class="nav-link"  routerLink="/login">Login</a>
-          </li>
-        </ng-template>
+       
            
-                        <li *ngIf="auth.user$ | async as user; else anonymousUser" class="nav-item">
+                        <li *ngIf="auth.user$ | async as user;" class="nav-item">
                 <img class="img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}" style="width: 60%;"
                 alt="{{user.displayName}}">              </li>
       </ul>
@@ -50,25 +45,19 @@
     </div>
 
   <div class="mission" >
-    <div class="side" style="position: fixed;z-index:50;background-color:#222;">
-      <button class="btn btn-dark"><a href="http://asend4.blogspot.com/" style="font-weight: 100%;color:#f1f1f1"> B</a></button><br><br>
-      <button class="btn btn-dark"><a href=" https://wa.me/682830010"style="font-weight: 100%;color:#f1f1f1"> W</a></button><br><br>
-    
-      <button class="btn btn-dark"><a href="http://asend4.blogspot.com/"style="font-weight: 100%;color:#f1f1f1"> F</a></button>
-    
-      
-      </div>
 <div class="row">
 <div class="col-sm-12">
 <div class="card">
 <h3 style="color: black;font-size: 20px; margin-top: 6%;">OUR MISSION</h3>
-<p>WE  aim at ..</p>
-<p>Lorem ipsum
+<p>WE  aim at  bridging that gap between High school and university for students.Our motto remains ONE STUDENT=ONE PROFESSIONAL SCHOOL.</p>
+<p>Seeing the High school child get into that dream career of theirs is our joy.
+We are set to do more and impact the lives of the youths in Cameroon and Africa as a whole. </p>
+<img src="../../assets/ASENDFG.PNG">
+<p style="margin-bottom: 12px;">ONE STUDENT=ONE PROFESSIONAL SCHOOL</p>
 
-</p>
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, aperiam saepe nihil hic dicta optio quia unde enim alias. Quae architecto sed labore sunt commodi id porro nostrum voluptatibus officiis.
 </div>
 </div>
+
 </div>
 </div>
 
@@ -77,12 +66,14 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, aperiam saepe
         <div class="col-sm-12">
         <div class="card">
         <h3 style="color: black;font-size: 20px;margin-top: 6%;">OUR VISION</h3>
-        <p>WE  aim at ..</p>
-        <p>Lorem ipsum
+        <p>ASEND has several visions regarding the education sector in Cameroon.</p>
+        <p>Following the emergence by 2035,we aim at digitalizing the education sector in our very best at the convenience of the students.
         
         </p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, aperiam saepe nihil hic dicta optio quia unde enim alias. Quae architecto sed labore sunt commodi id porro nostrum voluptatibus officiis.
-        </div>
+        <img src="../../assets/ASENDFG.PNG">
+        <p>TOGETHER WE CAN DO MUCH</p>
+
+      </div>
         </div>
        
         </div>
@@ -93,12 +84,11 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, aperiam saepe
           <div class="col-sm-12">
           <div class="card" >
           <h3 style="color: black;font-size: 20px;margin-top: 6%;">OUR VALUES</h3>
-          <p>WE  aim at ..</p>
-          <p>Lorem ipsum
-          
-          </p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, aperiam saepe nihil hic dicta optio quia unde enim alias. Quae architecto sed labore sunt commodi id porro nostrum voluptatibus officiis.
-          </div>
+          <p>WE  believe so much in PRAYER,HARDWORK AND DISCIPLINE(PhD).</p>
+            <img src="../../assets/ASENDFG.PNG">
+
+          PhD=PRAYER,HARDWORK and DISCIPLINE
+        </div>
           </div>
          
         </div>
@@ -158,7 +148,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, aperiam saepe
                           </div>
                         </div>
                         </div>
-                        <br><br><br>                        <br><br><br>
+                        <br><br>                     <br><br>
 
                         <h5 class="feature-title">REGIONAL CORDINATOR</h5>
                           <h6 class="feature-title">MR.OUSMAN ALAIN</h6>
@@ -167,11 +157,6 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, aperiam saepe
           </div>
         </div> 
       </div>
-
-</div>
-
-<div class="donate">
-
 
 </div>
 <div class="footer">

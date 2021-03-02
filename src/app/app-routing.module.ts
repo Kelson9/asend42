@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AboutComponent } from './about/about.component';
-import { AdminAuthGuard } from './admin-auth-guard.service';
 import { AdminNewsComponent } from './admin-news/admin-news.component';
 import { AdminTestimoniesComponent } from './admin-testimonies/admin-testimonies.component';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
@@ -31,7 +30,7 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    component: AdmindashboardComponent,canActivate:[AdminAuthGuard]
+    component: AdmindashboardComponent
   },
 
   {
@@ -46,15 +45,13 @@ const routes: Routes = [
     path: 'about',
     component:AboutComponent
   },
-  { path: 'myposts', redirectTo: 'myposts/allpost', pathMatch: 'full' },
+  { path: 'myposts', redirectTo: 'myposts/allpost', pathMatch: 'full'},
 
-  { path: 'myposts/:type', component: PostFormComponent ,canActivate:[AdminAuthGuard]},
+  { path: 'myposts/:type', component: PostFormComponent},
   { path: 'myposts', redirectTo: 'myposts/allpost', pathMatch: 'full' },
-
-  // { path: 'myposts/:id', component: PostformDetailsComponent },
   { path: 'myposts/:type/:id', component:PostformDetailsComponent},
   { path: 'news', component:NewsletterComponent},
-  { path: 'adminNews', component:AdminNewsComponent},
+  { path: 'adminNews', component:AdminNewsComponent,},
 
 
 

@@ -18,22 +18,23 @@
                   <a class="nav-link active" href="">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" routerLink="/" (click)="logout()">Logout</a>
+                  <a class="nav-link" href="http://asend4.blogspot.com/" >Blog</a>
                 </li>
-                <li  *ngIf="auth.user$ | async as user;" class="nav-item">
-                  <a class="nav-link" routerLink="/admin">Dashboard</a>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/about">About</a>
                 </li>
+      
                                     <li *ngIf="auth.user$ | async as user;" class="nav-item">
                         <img class="img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}" style="width: 60%;"
                         alt="{{user.displayName}}">              </li>
               </ul>
             </div>
           </nav>
-          <div class="row" style="margin-top: 15%;">
+          <div class="row" style="margin-top: 10%;">
             <div class="col-md-12 col-sm-12 col-xs-12 post-cards">
           
           
-                    <div class="card row" *ngFor="let i of allpost  ; let c = index"  style="margin-top:5%;height: auto;"> 
+                    <div class="card row" *ngFor="let i of allpost  ; let c = index"  style="margin-top:3%;margin-bottom:3%;height: auto;width: 80%;margin-left: 10%;"> 
                         <a [routerLink]="[c]"  style="text-decoration:none;cursor: pointer;">
                             <div class="col-md-6 col-xs-6 img-col col-md-push-5">
                                 <img src="{{ i.imgurl }} " alt="Avatar " style="width: 30%;" class="img-responsive" alt="img" />
@@ -58,11 +59,13 @@
             </div>
           
           
+        <div class="footer">
+
+          <app-footer></app-footer>
+        </div>  
           
-          
-    <div class="footer" id="contact">
-      <app-footer></app-footer>
-      </div>
+   
 
 
 
+</div>

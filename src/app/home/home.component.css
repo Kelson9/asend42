@@ -63,7 +63,6 @@ color: #f1f1f1;
 	text-align: center;
 	font-size: large;
 	padding: 20px;
-	background-color:#f1f1f1;
 	
 	
 
@@ -75,37 +74,12 @@ border-radius: 10%;
 
   }
  
- 
 
-  .sub-centre{
-	animation: myanim 10s infinite;
-	
-}
-.sub-centre .slide{
-	display: none;
-	animation-name: opacity;
-	animation-duration: 5s;
-	animation-timing-function: linear;
-	animation-iteration-count: infinite;
-	animation-direction: alternate-reverse;
+.sub-centre{
+	background-color: #f1f1f1;
 	
 }
 
-
-@keyframes opacity{
-	from{transform: scale(1.0);}
-	to{transform: scale(1.1);}
-}
-.sub-centre .active{
-	display: flex !important;
-}
-@keyframes myanim {
-  0% {background-color:#f1f1f1;}
-  25%{background-color:lightblue;}
-  50%{background-color:#f1f1f1f1}
-  75%{background-color:lightslategray;}
-  100% {background-color:lightblue;}
-}
   label{
 	  margin-left: 120px;
   }
@@ -183,10 +157,10 @@ margin-top: 50px;
 .float{
 	position:fixed;
 	z-index: 999;
-	width:60px;
+	width:50px;
 	height:60px;
-	bottom:40px;
-	right:40px;
+	bottom:10px;
+	right:20px;
 	background-color:#f1f1f1;
 	color:black;
 	border-radius:50px;
@@ -212,4 +186,8 @@ margin-top: 50px;
   }
 
 
-  
+  #about{
+display: block;
+width: 100%;
+
+  }

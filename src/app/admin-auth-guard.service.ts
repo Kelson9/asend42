@@ -19,11 +19,12 @@ export class AdminAuthGuard implements CanActivate {
 
     return this.auth.user$.pipe(
       take(1),
-      map(user => user && user.roles.admin ? true : false),
+      map(user => user  ? false : true),
       tap(isAdmin => {
-        if (!isAdmin) {
-          console.error('Access denied - Admins only')
-        }
+        if (isAdmin) {
+
+return true;      
+  }
       })
     );
 

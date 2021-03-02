@@ -1,20 +1,41 @@
 export interface AppUser{
-name:string;
-email:string;
 isAdmin:boolean;
+uid: string;
+email: string;
+displayName: string;
+photoURL: string;
+emailVerified: boolean;
 }
 
 export interface Roles { 
   admin?: boolean;
 }
 
-export interface User {
+
+export class User {
+  uid: string;
+  constructor(
+    public email: string,
+    public id: string,
+    private _token: string,
+    private _tokenExpirationDate: Date
+  ) { }
+
+  get token() {
+    if (!this._tokenExpirationDate || new Date() > this._tokenExpirationDate) {
+      return null;
+    }
+    return this._token;
+  }
+}
+
+export interface User2 {
   uid: string;
   email: string;
   displayName: string;
   photoURL: string;
   emailVerified: boolean;
-  roles: Roles;
+  admin: AppUser;
 }
 
 export class UPost {
@@ -85,13 +106,13 @@ export class LikeUserDetail {
 //   }
   
   
-  // export interface User1 {
-  //   uid: string;
-  //   email: string;
-  //   displayName: string;
-  //   photoURL: string;
-  //   emailVerified: boolean;
-  // }
+export interface User1 {
+  uid: string;
+  email: string;
+  displayName: string;
+  photoURL: string;
+  emailVerified: boolean;
+}
 // export class Comments {
 //     comment: string;
 //     comment_date: Date;

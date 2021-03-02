@@ -24,7 +24,7 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 export class HomeComponent implements OnInit {
 isOpen=false;
 isOpen1=false; 
-slides = [{'image':'../../assets/AsendMentor.jpg'}, {'image': '../../assets/1.jpg'},{'image': '../../assets/team1.jpg'}, {'image': '../../assets/youths1.jpg'}, {'image': '../../assets/youths2.jpg'},{'image':'../../assets/2.jpg'}, {'image':'../../assets/3.jpg'}, {'image':'../../assets/4.jpg'},{'image':'../../assets/5.jpg'},    ];
+slides = [ {'image': '../../assets/1.jpg'},{'image': '../../assets/team1.jpg'}, {'image': '../../assets/youths1.jpg'}, {'image': '../../assets/youths2.jpg'},{'image':'../../assets/2.jpg'}, {'image':'../../assets/3.jpg'}, {'image':'../../assets/4.jpg'},   ];
 navbarOpen=false;
   
     isLoading$: BehaviorSubject<boolean> = new BehaviorSubject(false);

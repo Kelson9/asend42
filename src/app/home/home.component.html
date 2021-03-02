@@ -10,7 +10,7 @@
         </button>
       
         <a href="#" class="float">
-          <i class="fa fa-arrow-up" aria-hidden="true" style="font-size: large;margin-left: 1px; margin-top: 20px;"></i>    </a>
+          <i class="fa fa-arrow-up" aria-hidden="true" style="font-size: large;margin-left: 2px; margin-top: 20px;"></i>    </a>
         <div class="collapse navbar-collapse"
              [ngClass]="{ 'show': navbarOpen }">
           <ul class="navbar-nav ">
@@ -55,25 +55,29 @@
       </nav>
      
         <div class="slide-show">
-          <div class="side" style="position: fixed;z-index:100;background-color:#222;margin-top: 20%;">
-            <button class="btn btn-dark"><a href="http://asend4.blogspot.com/" style="font-weight: 100%;color:#f1f1f1"> B</a></button><br><br>
-            <button class="btn btn-dark"><a href=" https://wa.me/682830010"style="font-weight: 100%;color:#f1f1f1"> W</a></button><br><br>
-
-            <button class="btn btn-dark"><a href="http://asend4.blogspot.com/"style="font-weight: 100%;color:#f1f1f1"> F</a></button>
-
-            
-            </div>
             <mat-spinner></mat-spinner>
 
           <div class="row">
     <div class="col-lg-6" id="picture">
       <h4  style="font-size:20px; color:#f1f1f1;">ASSOCIATION OF ENGINEERING<br> AND MEDICAL STUDENTS</h4> 
+      <p  style="color:#f1f1f1">THE ASSOCIATION OF ENGINEERING AND MEDICAL STUDENTS(ASEND) is an organization comprising of 
+       Engineers,Doctors,Teachers and students who seek to be a solution to the nations problems.We are a family.It was established in 2014 by Engineer David Baar and Dr.Cabrel Ngongang
+      with the initial goal of preparing high school students for concours in Cameroon.Over course of time, ASEND has become an organization which does not solelely prepare students for competitive entrance examinations bt also 
+     having a contribution to the emergence of Cameroon by 2035.
+
+      </p>
     </div>
 <div class="col-lg-6" id="notes"> 
-  <h4 style="font-size:40px; color:#f1f1f1;">Education Needs<br> <br>Complete Solution</h4><br>
-  <p style="color:#f1f1f1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto excepturi voluptatibus, nobis earum debitis asperiores similique aperiam dicta non accusamus dignissimos rem consequatur ab deserunt incidunt tempora, quod sed corporis!</p>
-<button class="btn btn-dark" (click)="more()">See More</button> 
-<div *ngIf="isOpen" style="color:white;">ASEND has stood the test of time and has played a big role as far as Education is concerned. Following the 2035 Emergence...
+  <h4 style="font-size:40px; color:#f1f1f1;">Education Needs<br><br> <br>Complete   <br><br>Solution</h4><br>
+  <p style="color:#f1f1f1"> Success means different things to different people,for some it is being able to land their desired job while for others
+  it is being able to find fulfillment in what they do.
+  At ASEND-CORPORATION, success for us means being able to make quality education available to you antwhere anytime.
+  We provide preparatory classes for high school students and also prepare them for their GCE ADVANCED LEVEL examination.</p>
+<button class="btn btn-dark" (click)="more()" *ngIf="!isOpen">See More</button> 
+<div *ngIf="isOpen" style="color:white;">ASEND has stood the test of time and has played a big role as far as Education is concerned.
+  We provide you with top notch lectures for all science subjects.We have the objective of reaching 100,000 community members
+  all over Cameroon.We were amongst the number five best corporations to focus on educational solutions in Cameroon that helped people during
+  the lockdown-by Afrique Unlimited.This is ASEND.The ASSOCIATION OF ENGINEERING AND MEDICAL STUDENTS.TOGETHER WE CAN DO MUCH.
   <br><button class="btn btn-dark" (click)="more()">See Less</button> 
 
 </div>  
@@ -86,13 +90,11 @@
       timings="500ms ease-in"
       [autoplay]="true"
       interval="1000"
-      color="accent"
       maxWidth="auto"
       proportion="50"
       slides="infinite"
       [loop]="true"
-      [hideArrows]="false"
-      [hideIndicators]="false"
+      [hideArrows]="true"
       [useKeyboard]="true"
       [useMouseWheel]="false"
       orientation="ltr"
@@ -107,61 +109,20 @@
       <div
       style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center"
     >
-      <h1 *ngIf="i==0" style="background-color:black; padding: 10px;color:white ;">ASEND</h1>
-      <h1 *ngIf="i==2" style="background-color:black; padding: 10px;color:white ;">WE ARE A FAMILY</h1>
+      <h1 *ngIf="i==0" style="background-color:black; padding: 10px;color:white ;">A</h1>
+      <h1 *ngIf="i==1" style="background-color:black; padding: 10px;color:orange ;">S</h1>
 
-      <h1 *ngIf="i==4" style="background-color:black; padding: 10px;color:white ;">JOIN US TODAY</h1>
+      <h1 *ngIf="i==2" style="background-color:black; padding: 10px;color:white ;">E</h1>
 
-      <h1 *ngIf="i==6" style="background-color:black; padding: 10px;color:white ;">PARTNER WITH US</h1>
+      <h1 *ngIf="i==3" style="background-color:black; padding: 10px;color:orange;">N</h1>
 
-      <h1  *ngIf="i==8" style="background-color:black; padding: 10px;color:white ;"> WE CAN DO MUCH</h1>
-
+      <h1  *ngIf="i==4" style="background-color:black; padding: 10px;color:white ;"> D</h1>
+      <h1  *ngIf="i==5" style="background-color:black; padding: 10px;color:orange ;"> AS</h1>
+      <h1  *ngIf="i==6" style="background-color:black; padding: 10px;color:white ;"> END</h1>
     </div>
     </mat-carousel-slide>
     </mat-carousel>
 </div> 
-
-<div class="swipe" style="padding-top: 10px;background-color: #f1f1f1; text-align: center;">  
-  <h2 style="background-color: #f1f1f1; text-align: center;">WE OFFER</h2>
-
-<swiper
-      [slidesPerView]="4"
-      [spaceBetween]="25"
-      (swiper)="onSwiper($event)"
-      (slideChange)="onSlideChange()"
-      [navigation]="true"
-      [pagination]="{ clickable: true }"
-      [autoplay]="true"
-    >
-
-    <ng-template swiperSlide>  
-<p>MENTORSHIP</p>
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum beatae non enim libero. Nemo debitis ad est doloribus autem, commodi voluptates hic possimus laboriosam qui accusamus porro veritatis, blanditiis quos.
-</ng-template>
-<ng-template swiperSlide>   
- <p> PREPARATORY CLASSES  </p> 
- Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum beatae non enim libero. Nemo debitis ad est doloribus autem, commodi voluptates hic possimus laboriosam qui accusamus porro veritatis, blanditiis quos.
-
-</ng-template>
-<ng-template swiperSlide> 
- <p> CAREER ORIENTATION   </p> 
- Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum beatae non enim libero. Nemo debitis ad est doloribus autem, commodi voluptates hic possimus laboriosam qui accusamus porro veritatis, blanditiis quos.
-
-</ng-template>
-<ng-template swiperSlide>  
-  <p>TECH TRAININGS  </p>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum beatae non enim libero. Nemo debitis ad est doloribus autem, commodi voluptates hic possimus laboriosam qui accusamus porro veritatis, blanditiis quos.
-
-</ng-template>
-<ng-template swiperSlide>
- <p>  WEB HOSTING   </p> 
- Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum beatae non enim libero. Nemo debitis ad est doloribus autem, commodi voluptates hic possimus laboriosam qui accusamus porro veritatis, blanditiis quos.
-
-</ng-template>
-        </swiper> 
-</div>
-
-
 
     <div class="sub-centre">
      <h2 style="padding-top: 30px;background-color: #f1f1f1; text-align: center;">OUR IMPACT</h2> 
@@ -169,52 +130,60 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum beatae non enim
       <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-4">
             <br>
-            <img src="../../assets/ousman.PNG" alt="asend"style="border-radius: 50%; margin-left: 50px; width:60%;">
-            <h6  style="font-size: 15px; text-align: center;">We have impacted the lives of ..</h6>
+            <img src="../../assets/AsendMentor.jpg" alt="asend" style="border-radius: 50%; margin-left: 50px; width:60%;">
+            <p  style="font-size: 18px; text-align: center; color:black;padding: 1em;">We have impacted the lives of youths throughout Cameroon.In 2020,we succeeded in sending over 85 out of 150 students in their dream professional schools in Cameroon in the  following fields:<b> Medecine</b>(Buea,Yaounde,Bamenda,Douala).
+            <b>Engineering </b> (Polytechnic,FET,COT,EGEM,FASA etc). <b> Agriculture</b>(FASA,FAVM).<b> Veterinary Medecine</b>(Ngaoundere,FAVM-UB).
+             We have an objective of leading 1000 students to their dream university in and out of the country in the above mentioned fields.
+            </p>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4">
             <br>
-            <img src="../../assets/ousman.PNG" alt="asend" style="border-radius: 50%; margin-left: 50px; width:60%;">
-            <h6  style="font-size: 15px;text-align: center;"> We have impacted the lives of ..</h6>
+            <img src="../../assets/youths1.jpg" alt="asend" style="border-radius: 50%; margin-left: 50px; width:60%;">
+            <p  style="text-align: center;color: black;font-size: 18px;padding:1em"> Each year,in accordance with the <b>UN Sustainable Development goals, </b> we celebrate the<b> World Engineering Day </b> on the <b>4th of March </b> with students all over Cameroon
+            to recognise the immense contribution of Engineering and Engineers in<b> ASEND,Cameroon </b> and the<b> World </b>.With developing and building on leadership and professionalism in the life of all members,engineers inclusive being a goal of <b> ASEND,</b> we see this day 
+              as one to create impact in the lives of the students.
+            </p>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4">
           <br>
 
-                  <img src="../../assets/testimony2.jpg" alt="asend" style="margin-left: 50px; width:60%; border-radius: 50%;">
-                  <h6  style="font-size: 15px; text-align: center;">We have impacted the lives of ..</h6>
+                  <img src="../../assets/team1.jpg" alt="asend" style="margin-left: 50px; width:60%; border-radius: 50%;">
+                  <p  style="text-align: center;color: black;font-size: 18px;padding:1em">We make sure that our team members gain professional skills in the course of carrying out ASEND activities.
+                    
+                    .With this, we impact  <b>skills </b>  and <b>professionalism </b> by giving them the opportunity to discover their hidden potentials.We do this through workshop.
+                  We train them in aspects like <b> Public speaking,Self-discovery,Leadership </b> and many more. We also go as far as organizing tech trainings for interested 
+                 team members who aspire to gain some skillsets in the field of IT.
+
+                  </p>
                 </div>
     </div>    
-    </div>
-    <div class="test" style="text-align: center;padding-top: 10px;">  <h2 style="padding-top: 30px;background-color: #f1f1f1;">TESTIMONIES</h2> 
+    </div><br><br>
+    <div style="text-align: center;background-color:#f1f1f1; margin-bottom: 50px;"> 
+       <h2>TESTIMONIES</h2> 
 
     <swiper
     [slidesPerView]="3"
-    [spaceBetween]="50"
+    [spaceBetween]="100"
     (swiper)="onSwiper($event)"
     (slideChange)="onSlideChange()"
-    [navigation]="true"
     [pagination]="{ clickable: true }"
+    [autoplay]=true
   >
-    <ng-template swiperSlide  *ngFor="let i of allpost  ; let c = index" style="margin-bottom: 10px;">
-      <a [routerLink]="[c]"  style="text-decoration:none;cursor: pointer;">
-        <div class="col-md-4 col-xs-12 img-col col-md-push-8">
-            <img src="{{ i.imgurl }} " alt="Avatar " style="width: 100%;border-radius: 50%" class="img-responsive" alt="img" />
-        </div>
-        <div class="col-md-8 col-xs-12 main-content col-md-pull-4">
-            <h2 class="title">
-                {{ i.sName }}
-            </h2>
-
-            <p>{{i.description}}</p>
-        </div>
-        
-    </a>
-    </ng-template>
+    <ng-template swiperSlide  *ngFor="let i of allpost  ; let c = index" >
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-4">
+              <br>
+              <img src="{{ i.imgurl }}" alt="asend"  style="margin-left: 50px; width:100%; border-radius: 50%;">
+              <br><br>
+              <p style="text-align: center;color: black;font-size: 16px;margin-left: 12px;"> {{i.sName}}{{i.description}}</p>     
+          </div>
+          </div>
+            </ng-template>
   </swiper>
     </div>
   <div class="mail" style="margin-top: 2px;margin-bottom: 5px;background-color: #f1f1f1;z-index: 200%;">
-    <button class="btn btn-dark" style=" width:50%;margin-left: 30%;" routerLink="/news">Subsribe for a NewsLetter</button><br><br>
-    <button class="btn btn-dark" style="width: 50%; margin-left: 30%;"><a href="mailto:kelsonngoe@gmail.com" style="text-decoration: none;">  Send Email</a></button>
+    <button class="btn btn-dark" style=" width:50%;margin-left: 30%;" routerLink="/news">Subscribe for a NewsLetter</button><br><br>
+    <button class="btn btn-dark" style="width: 50%; margin-left: 30%;"><a href="mailto:asend.org@gmail.com" style="text-decoration: none;">  Send Email</a></button>
   </div>
 
      <div class="footer" id="contact">

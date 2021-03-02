@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 import { PostService } from '../post.service';
@@ -21,9 +22,10 @@ export class NewsletterComponent implements OnInit {
     this.navbarOpen = !this.navbarOpen;
   }
 
-  save(post){
+  save(post:NgForm){
    
     this.postService.create(post);
+    post.reset();
     
       }
       logout(){

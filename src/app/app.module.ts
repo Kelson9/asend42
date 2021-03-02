@@ -40,6 +40,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 // Import library module
 import { NgxSpinnerModule } from "ngx-spinner";
 import { CommonModule } from '@angular/common';
+import { UserService } from './user.service';
 
 
 
@@ -86,7 +87,7 @@ import { CommonModule } from '@angular/common';
   
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [AuthService,AuthGuard,PostService,CrudService],
+  providers: [AuthService,AuthGuard,PostService,UserService,CrudService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

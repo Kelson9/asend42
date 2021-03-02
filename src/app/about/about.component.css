@@ -102,6 +102,7 @@ padding: 1em;
       padding: 3em;
       position: relative;
       background-color: #f1f1f1;
+      height: 100vh;
 }
 
 .team{
@@ -130,7 +131,7 @@ text-align: center;
         height: 200px;
         border: 1px solid #f1f1f1;
         perspective: 1000px; 
-        margin-left: 20px;
+        margin-left: 10px;
       }
       
       .flip-card-inner {

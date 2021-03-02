@@ -6,26 +6,33 @@
 
 @import '~swiper/swiper-bundle';
 
-body,
+/* body,
 html {
   padding: 0;
   margin: 0;
   position: relative;
   height: 80%;
-}
+} */
 
-.swiper-container {
+/* .swiper-container {
   width: 100%;
   height: 200px;
   margin: 50px auto;
-}
-
-.swiper-slide {
+  .swiper-slide {
   background: #f1f1f1;
   color: #000;
   text-align: center;
   line-height: 50px;
   width: 100%;
+  transform: scale(1);
+  transition: transform .5s;
+  position: relative;
+
+}
+}
+*/
+.swiper-slide {
+
   transform: scale(1);
   transition: transform .5s;
   position: relative;
@@ -40,11 +47,12 @@ html {
   
 
 }
+/*
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-}
+} */
 
 
 /* * Sidebar */
